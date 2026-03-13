@@ -27,12 +27,12 @@ export function ContactSection() {
             <Mail className="w-5 h-5 text-foreground/70" />
           </motion.div>
           
-          <div className="space-y-3">
-            <h2 className="font-[var(--font-poppins)] text-3xl md:text-4xl font-semibold text-foreground">
-              Get in touch
+          <div className="space-y-4">
+            <h2 className="font-[var(--font-poppins)] text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+              Get in Touch
             </h2>
             
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-lg">
               Have questions? We'd love to hear from you.
             </p>
           </div>
@@ -42,13 +42,13 @@ export function ContactSection() {
             initial={{ opacity: 0, y: 15 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-2.5 px-6 py-3 bg-foreground text-background rounded-full text-sm font-medium transition-all duration-300 hover:bg-foreground/90 group"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center gap-3 px-8 py-4 bg-foreground text-background rounded-full text-base font-semibold transition-all duration-300 hover:bg-foreground/90 hover:shadow-xl group"
           >
-            <Mail className="w-4 h-4" />
+            <Mail className="w-5 h-5" />
             aynixofficial@gmail.com
-            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </motion.a>
 
           <motion.p

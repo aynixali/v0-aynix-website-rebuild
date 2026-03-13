@@ -35,24 +35,24 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
       viewport={{ once: true }}
-      whileHover={{ y: -2 }}
-      className="group text-center p-5"
+      whileHover={{ y: -4 }}
+      className="group text-center p-6"
     >
       <motion.div
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.08 }}
         transition={{ duration: 0.2 }}
-        className="inline-flex p-3 rounded-lg bg-muted mb-3"
+        className="inline-flex p-4 rounded-2xl bg-muted mb-4"
       >
-        <Icon className="w-5 h-5 text-foreground/70" />
+        <Icon className="w-6 h-6 text-foreground/80" />
       </motion.div>
       
-      <h3 className="font-[var(--font-poppins)] text-sm font-semibold text-foreground mb-1.5">
+      <h3 className="font-[var(--font-poppins)] text-lg font-bold text-foreground mb-2">
         {feature.title}
       </h3>
       
-      <p className="text-muted-foreground text-xs leading-relaxed">
+      <p className="text-muted-foreground text-base leading-relaxed">
         {feature.description}
       </p>
     </motion.div>
@@ -72,15 +72,15 @@ export function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-14 space-y-5"
+            className="text-center mb-16 space-y-6"
           >
-            <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-              About
+            <span className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+              About Us
             </span>
-            <h2 className="font-[var(--font-poppins)] text-3xl md:text-4xl font-semibold text-foreground">
-              Technology with purpose
+            <h2 className="font-[var(--font-poppins)] text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+              Technology with Purpose
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
               At Aynix, we believe technology should enhance life, not complicate it. 
               Our products combine premium materials, thoughtful engineering, and clean design.
             </p>
@@ -98,19 +98,19 @@ export function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-12 md:gap-16 pt-10 border-t border-border"
+            className="flex flex-wrap justify-center gap-16 md:gap-24 pt-12 border-t border-border"
           >
             <div className="text-center">
-              <div className="font-[var(--font-poppins)] text-3xl font-semibold text-foreground">50+</div>
-              <div className="text-xs text-muted-foreground mt-1">Patents</div>
+              <div className="font-[var(--font-poppins)] text-5xl md:text-6xl font-bold text-foreground">50+</div>
+              <div className="text-base text-muted-foreground mt-2 font-medium">Patents</div>
             </div>
             <div className="text-center">
-              <div className="font-[var(--font-poppins)] text-3xl font-semibold text-foreground">10M+</div>
-              <div className="text-xs text-muted-foreground mt-1">Users</div>
+              <div className="font-[var(--font-poppins)] text-5xl md:text-6xl font-bold text-foreground">10M+</div>
+              <div className="text-base text-muted-foreground mt-2 font-medium">Users</div>
             </div>
             <div className="text-center">
-              <div className="font-[var(--font-poppins)] text-3xl font-semibold text-foreground">99%</div>
-              <div className="text-xs text-muted-foreground mt-1">Satisfaction</div>
+              <div className="font-[var(--font-poppins)] text-5xl md:text-6xl font-bold text-foreground">99%</div>
+              <div className="text-base text-muted-foreground mt-2 font-medium">Satisfaction</div>
             </div>
           </motion.div>
         </div>

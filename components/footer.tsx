@@ -15,12 +15,12 @@ export function Footer() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex items-center gap-3"
+            className="flex items-center gap-4"
           >
-            <span className="font-[var(--font-poppins)] text-sm font-light tracking-[0.3em] uppercase text-foreground/70">
-              aynix
+            <span className="font-[var(--font-poppins)] text-xl font-bold tracking-tight text-foreground">
+              AYNIX
             </span>
-            <span className="hidden sm:inline text-muted-foreground text-xs">
+            <span className="hidden sm:inline text-muted-foreground text-sm font-medium">
               Premium Technology
             </span>
           </motion.div>

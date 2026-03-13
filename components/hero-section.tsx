@@ -58,28 +58,26 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="space-y-10"
         >
-          {/* Small stylish logo */}
+          {/* Big bold AYNIX logo */}
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="font-[var(--font-poppins)] text-lg md:text-xl font-light tracking-[0.4em] uppercase text-foreground/60">
-              aynix
+            <h1 className="font-[var(--font-poppins)] text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-bold tracking-tight text-foreground">
+              AYNIX
             </h1>
           </motion.div>
 
-          {/* Main headline */}
+          {/* Modern tagline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="space-y-4"
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="space-y-2"
           >
-            <h2 className="font-[var(--font-poppins)] text-5xl md:text-6xl lg:text-7xl font-semibold text-foreground leading-[1.1] tracking-tight text-balance">
-              Technology that
-              <br />
-              fits your life
+            <h2 className="font-[var(--font-poppins)] text-2xl md:text-3xl lg:text-4xl font-medium text-foreground/80 tracking-wide">
+              The Future of Tech
             </h2>
           </motion.div>
 
@@ -87,8 +85,8 @@ export function HeroSection() {
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="text-base md:text-lg text-muted-foreground max-w-md mx-auto leading-relaxed"
+            transition={{ duration: 0.7, delay: 0.6 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-lg mx-auto leading-relaxed"
           >
             Premium devices designed with intention. Simple, powerful, beautiful.
           </motion.p>
@@ -97,28 +95,28 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
+            transition={{ duration: 0.7, delay: 0.8 }}
+            className="flex flex-col sm:flex-row gap-5 justify-center items-center pt-6"
           >
             <motion.a
               href="#products"
-              className="group px-8 py-3.5 bg-foreground text-background rounded-full font-medium text-sm transition-all duration-300 hover:bg-foreground/90"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="group px-10 py-4 bg-foreground text-background rounded-full font-semibold text-base transition-all duration-300 hover:bg-foreground/90 hover:shadow-xl"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               <span className="flex items-center gap-2">
-                View Products
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                Explore Products
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </span>
             </motion.a>
 
             <motion.a
               href="#about"
-              className="group px-8 py-3.5 border border-border text-foreground rounded-full font-medium text-sm transition-all duration-300 hover:border-foreground/50"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="group px-10 py-4 border-2 border-foreground/20 text-foreground rounded-full font-semibold text-base transition-all duration-300 hover:border-foreground hover:bg-foreground hover:text-background"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              Our Story
+              Learn More
             </motion.a>
           </motion.div>
         </motion.div>

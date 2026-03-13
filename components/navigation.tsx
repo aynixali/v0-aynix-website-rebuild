@@ -44,19 +44,19 @@ export function Navigation() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className="font-[var(--font-poppins)] text-base font-light tracking-[0.3em] uppercase text-foreground/80">
-              aynix
+            <span className="font-[var(--font-poppins)] text-xl md:text-2xl font-bold tracking-tight text-foreground">
+              AYNIX
             </span>
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
               <motion.a
                 key={item.label}
                 href={item.href}
-                className="relative text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-                whileHover={{ y: -1 }}
+                className="relative text-base font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+                whileHover={{ y: -2 }}
               >
                 {item.label}
               </motion.a>
@@ -66,11 +66,11 @@ export function Navigation() {
           {/* CTA Button */}
           <motion.a
             href="#contact"
-            className="hidden md:flex px-5 py-2 bg-foreground text-background rounded-full text-sm transition-all duration-300 hover:bg-foreground/90"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            className="hidden md:flex px-6 py-2.5 bg-foreground text-background rounded-full text-base font-semibold transition-all duration-300 hover:bg-foreground/90 hover:shadow-lg"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
           >
-            Get in Touch
+            Contact
           </motion.a>
 
           {/* Mobile Menu Button */}

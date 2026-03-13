@@ -60,31 +60,31 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-4">
+        <div className="p-7 space-y-5">
           <div className="flex items-start justify-between">
-            <div className="space-y-1">
-              <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            <div className="space-y-2">
+              <span className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                 {product.category}
               </span>
-              <h3 className="font-[var(--font-poppins)] text-lg font-semibold text-foreground">
+              <h3 className="font-[var(--font-poppins)] text-2xl font-bold text-foreground">
                 {product.name}
               </h3>
             </div>
-            <div className="p-2 rounded-lg bg-muted">
-              <Icon className="w-4 h-4 text-foreground/70" />
+            <div className="p-3 rounded-xl bg-muted">
+              <Icon className="w-5 h-5 text-foreground/70" />
             </div>
           </div>
           
-          <p className="text-muted-foreground text-sm leading-relaxed">
+          <p className="text-muted-foreground text-base leading-relaxed">
             {product.description}
           </p>
 
           <motion.button
-            whileHover={{ x: 2 }}
-            className="flex items-center gap-1.5 text-sm font-medium text-foreground group/btn"
+            whileHover={{ x: 3 }}
+            className="flex items-center gap-2 text-base font-semibold text-foreground group/btn"
           >
             Learn More
-            <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
           </motion.button>
         </div>
       </motion.div>
@@ -103,15 +103,15 @@ export function ProductsSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 space-y-4"
+          className="text-center mb-20 space-y-5"
         >
-          <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            Products
+          <span className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+            Our Products
           </span>
-          <h2 className="font-[var(--font-poppins)] text-3xl md:text-4xl font-semibold text-foreground">
-            Built for you
+          <h2 className="font-[var(--font-poppins)] text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+            Built for You
           </h2>
-          <p className="text-muted-foreground max-w-md mx-auto text-sm">
+          <p className="text-muted-foreground max-w-lg mx-auto text-lg">
             Technology that integrates seamlessly into your daily routine.
           </p>
         </motion.div>
