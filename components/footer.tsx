@@ -7,20 +7,20 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="relative py-12 bg-card border-t border-border">
+    <footer className="relative py-10 bg-card border-t border-border">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-5">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex items-center gap-4"
+            className="flex items-center gap-3"
           >
-            <span className="font-[var(--font-poppins)] text-lg font-light tracking-[0.2em] text-foreground">
+            <span className="font-[var(--font-poppins)] text-sm font-light tracking-[0.3em] uppercase text-foreground/70">
               aynix
             </span>
-            <span className="hidden sm:inline text-muted-foreground text-sm">
+            <span className="hidden sm:inline text-muted-foreground text-xs">
               Premium Technology
             </span>
           </motion.div>
@@ -32,10 +32,10 @@ export function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="flex items-center gap-2 text-muted-foreground hover:text-[#00d4ff] transition-colors"
+            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
           >
-            <Mail className="w-4 h-4" />
-            <span className="text-sm">aynixofficial@gmail.com</span>
+            <Mail className="w-3.5 h-3.5" />
+            <span className="text-xs">aynixofficial@gmail.com</span>
           </motion.a>
 
           {/* Copyright */}
@@ -44,7 +44,7 @@ export function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-sm text-muted-foreground"
+            className="text-xs text-muted-foreground"
           >
             {currentYear} Aynix. All rights reserved.
           </motion.p>

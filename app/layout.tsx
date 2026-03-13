@@ -17,20 +17,20 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Aynix | Premium Consumer Technology',
+  title: 'Aynix | Premium Technology',
   description: 'Aynix creates premium consumer technology - smartwatches, laptops, and phones designed for the modern lifestyle.',
   keywords: ['Aynix', 'technology', 'smartwatch', 'laptop', 'phone', 'premium', 'minimal'],
   authors: [{ name: 'Aynix' }],
   creator: 'Aynix',
   openGraph: {
-    title: 'Aynix | Premium Consumer Technology',
+    title: 'Aynix | Premium Technology',
     description: 'Premium consumer technology for the modern lifestyle',
     type: 'website',
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: '#f5f5f5',
+  themeColor: '#ffffff',
   width: 'device-width',
   initialScale: 1,
 }

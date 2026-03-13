@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
-import { Watch, Laptop, Smartphone, ArrowRight } from "lucide-react"
+import { Watch, Laptop, Smartphone, ArrowUpRight } from "lucide-react"
 import Image from "next/image"
 
 const products = [
@@ -11,10 +11,9 @@ const products = [
     id: 1,
     name: "AyWatch Pro",
     category: "Smartwatch",
-    description: "Health monitoring meets elegant design. Track your wellness journey with precision.",
+    description: "Health monitoring meets elegant design. Track your wellness with precision.",
     icon: Watch,
     image: "/images/smartwatch.jpg",
-    accent: "#00d4ff",
   },
   {
     id: 2,
@@ -23,7 +22,6 @@ const products = [
     description: "Powerful performance in an ultra-thin profile. Work without limits.",
     icon: Laptop,
     image: "/images/laptop.jpg",
-    accent: "#ff7f50",
   },
   {
     id: 3,
@@ -32,7 +30,6 @@ const products = [
     description: "Next-generation mobile experience. Capture, create, connect.",
     icon: Smartphone,
     image: "/images/phone.jpg",
-    accent: "#00d4ff",
   },
 ]
 
@@ -41,61 +38,53 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.15 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
       className="group"
     >
       <motion.div
-        whileHover={{ y: -8, scale: 1.02 }}
+        whileHover={{ y: -4 }}
         transition={{ duration: 0.3 }}
-        className="relative bg-card rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500"
+        className="relative bg-card rounded-xl overflow-hidden border border-border hover:border-foreground/20 transition-colors duration-300"
       >
         {/* Image container */}
-        <div className="relative h-72 overflow-hidden bg-gradient-to-b from-muted/30 to-muted/10">
+        <div className="relative h-64 overflow-hidden bg-muted">
           <Image
             src={product.image}
             alt={product.name}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
-          {/* Icon badge */}
-          <div className="absolute top-4 right-4">
-            <div 
-              className="p-3 rounded-xl bg-card/90 backdrop-blur-sm shadow-sm"
-              style={{ color: product.accent }}
-            >
-              <Icon className="w-5 h-5" />
-            </div>
-          </div>
         </div>
 
         {/* Content */}
         <div className="p-6 space-y-4">
-          <div className="space-y-1">
-            <span 
-              className="text-sm font-medium uppercase tracking-wider"
-              style={{ color: product.accent }}
-            >
-              {product.category}
-            </span>
-            <h3 className="font-[var(--font-poppins)] text-xl font-semibold text-foreground">
-              {product.name}
-            </h3>
+          <div className="flex items-start justify-between">
+            <div className="space-y-1">
+              <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                {product.category}
+              </span>
+              <h3 className="font-[var(--font-poppins)] text-lg font-semibold text-foreground">
+                {product.name}
+              </h3>
+            </div>
+            <div className="p-2 rounded-lg bg-muted">
+              <Icon className="w-4 h-4 text-foreground/70" />
+            </div>
           </div>
           
-          <p className="text-muted-foreground leading-relaxed text-sm">
+          <p className="text-muted-foreground text-sm leading-relaxed">
             {product.description}
           </p>
 
           <motion.button
-            whileHover={{ x: 4 }}
-            className="flex items-center gap-2 text-sm font-medium group/btn"
-            style={{ color: product.accent }}
+            whileHover={{ x: 2 }}
+            className="flex items-center gap-1.5 text-sm font-medium text-foreground group/btn"
           >
             Learn More
-            <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+            <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
           </motion.button>
         </div>
       </motion.div>
@@ -108,26 +97,26 @@ export function ProductsSection() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   return (
-    <section id="products" ref={sectionRef} className="relative py-24 md:py-32">
+    <section id="products" ref={sectionRef} className="relative py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16 space-y-4"
         >
-          <span className="text-[#00d4ff] font-medium text-sm uppercase tracking-wider">
-            Our Products
+          <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            Products
           </span>
-          <h2 className="font-[var(--font-poppins)] text-4xl md:text-5xl font-semibold text-foreground">
-            Designed for You
+          <h2 className="font-[var(--font-poppins)] text-3xl md:text-4xl font-semibold text-foreground">
+            Built for you
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Premium technology that seamlessly integrates into your daily life.
+          <p className="text-muted-foreground max-w-md mx-auto text-sm">
+            Technology that integrates seamlessly into your daily routine.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product, index) => (
             <ProductCard key={product.id} product={product} index={index} />
           ))}
