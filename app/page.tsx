@@ -1,4 +1,3 @@
-import { ParticleBackground } from "@/components/particle-background"
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
 import { ProductsSection } from "@/components/products-section"
@@ -10,14 +9,11 @@ import { AIChatbot } from "@/components/ai-chatbot"
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-background overflow-hidden">
-      {/* Particle background */}
-      <ParticleBackground />
-      
       {/* Navigation */}
       <Navigation />
       
       {/* Main content */}
-      <div className="relative z-10">
+      <div className="relative">
         <HeroSection />
         <ProductsSection />
         <AboutSection />

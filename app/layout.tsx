@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Orbitron } from 'next/font/google'
+import { Inter, Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -9,27 +9,28 @@ const inter = Inter({
   display: 'swap',
 })
 
-const orbitron = Orbitron({ 
+const poppins = Poppins({ 
   subsets: ['latin'],
-  variable: '--font-orbitron',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Aynix | Futuristic Consumer Technology',
-  description: 'Aynix pioneers the future of consumer technology with innovative smartwatches, laptops, and next-generation mobile devices. Experience tomorrow, today.',
-  keywords: ['Aynix', 'technology', 'smartwatch', 'laptop', 'mobile', 'futuristic', 'innovation'],
+  title: 'Aynix | Premium Consumer Technology',
+  description: 'Aynix creates premium consumer technology - smartwatches, laptops, and phones designed for the modern lifestyle.',
+  keywords: ['Aynix', 'technology', 'smartwatch', 'laptop', 'phone', 'premium', 'minimal'],
   authors: [{ name: 'Aynix' }],
   creator: 'Aynix',
   openGraph: {
-    title: 'Aynix | Futuristic Consumer Technology',
-    description: 'Pioneering the future of consumer technology',
+    title: 'Aynix | Premium Consumer Technology',
+    description: 'Premium consumer technology for the modern lifestyle',
     type: 'website',
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0891b2',
+  themeColor: '#f5f5f5',
   width: 'device-width',
   initialScale: 1,
 }
@@ -40,8 +41,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.variable} ${orbitron.variable} font-sans antialiased`}>
+    <html lang="en">
+      <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

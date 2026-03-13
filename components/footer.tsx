@@ -7,24 +7,21 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="relative py-12 border-t border-border/50">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-card/50 to-transparent" />
-
+    <footer className="relative py-12 bg-card border-t border-border">
       <div className="container mx-auto px-6">
-        <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex items-center gap-3"
+            className="flex items-center gap-4"
           >
-            <span className="font-[var(--font-orbitron)] text-2xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
-              AYNIX
+            <span className="font-[var(--font-poppins)] text-lg font-light tracking-[0.2em] text-foreground">
+              aynix
             </span>
-            <span className="text-muted-foreground text-sm hidden sm:inline">
-              | Future Technology
+            <span className="hidden sm:inline text-muted-foreground text-sm">
+              Premium Technology
             </span>
           </motion.div>
 
@@ -35,7 +32,7 @@ export function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-muted-foreground hover:text-[#00d4ff] transition-colors"
           >
             <Mail className="w-4 h-4" />
             <span className="text-sm">aynixofficial@gmail.com</span>
@@ -49,18 +46,9 @@ export function Footer() {
             transition={{ delay: 0.2 }}
             className="text-sm text-muted-foreground"
           >
-            © {currentYear} Aynix. All rights reserved.
+            {currentYear} Aynix. All rights reserved.
           </motion.p>
         </div>
-
-        {/* Bottom accent line */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="mt-8 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"
-        />
       </div>
     </footer>
   )
