@@ -33,22 +33,22 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.12 }}
       viewport={{ once: true }}
-      whileHover={{ y: -4 }}
-      className="group text-center p-6"
+      whileHover={{ y: -6 }}
+      className="group text-center p-8 rounded-2xl bg-card/50 border border-border hover:border-primary/30 transition-all duration-300"
     >
       <motion.div
-        whileHover={{ scale: 1.08 }}
+        whileHover={{ scale: 1.1, rotate: 5 }}
         transition={{ duration: 0.2 }}
-        className="inline-flex p-4 rounded-2xl bg-muted mb-4"
+        className="inline-flex p-4 rounded-2xl bg-secondary border border-border mb-5"
       >
-        <Icon className="w-6 h-6 text-foreground/80" />
+        <Icon className="w-7 h-7 text-primary" />
       </motion.div>
       
-      <h3 className="font-[var(--font-poppins)] text-lg font-bold text-foreground mb-2">
+      <h3 className="font-[var(--font-space)] text-xl font-bold text-foreground mb-3">
         {feature.title}
       </h3>
       
@@ -64,55 +64,34 @@ export function AboutSection() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   return (
-    <section id="about" ref={sectionRef} className="relative py-24 md:py-32 bg-card">
+    <section id="about" ref={sectionRef} className="relative py-28 md:py-36">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16 space-y-6"
+            transition={{ duration: 0.7 }}
+            className="text-center mb-20 space-y-6"
           >
-            <span className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+            <span className="text-sm font-semibold uppercase tracking-widest text-primary">
               About Us
             </span>
-            <h2 className="font-[var(--font-poppins)] text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+            <h2 className="font-[var(--font-space)] text-5xl md:text-6xl lg:text-7xl font-bold text-foreground">
               Technology with Purpose
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-xl leading-relaxed">
               At Aynix, we believe technology should enhance life, not complicate it. 
               Our products combine premium materials, thoughtful engineering, and clean design.
             </p>
           </motion.div>
 
           {/* Features grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <FeatureCard key={feature.title} feature={feature} index={index} />
             ))}
           </div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-16 md:gap-24 pt-12 border-t border-border"
-          >
-            <div className="text-center">
-              <div className="font-[var(--font-poppins)] text-5xl md:text-6xl font-bold text-foreground">50+</div>
-              <div className="text-base text-muted-foreground mt-2 font-medium">Patents</div>
-            </div>
-            <div className="text-center">
-              <div className="font-[var(--font-poppins)] text-5xl md:text-6xl font-bold text-foreground">10M+</div>
-              <div className="text-base text-muted-foreground mt-2 font-medium">Users</div>
-            </div>
-            <div className="text-center">
-              <div className="font-[var(--font-poppins)] text-5xl md:text-6xl font-bold text-foreground">99%</div>
-              <div className="text-base text-muted-foreground mt-2 font-medium">Satisfaction</div>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

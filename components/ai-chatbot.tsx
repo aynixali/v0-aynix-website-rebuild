@@ -138,37 +138,37 @@ export function AIChatbot() {
       <motion.button
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
-        transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
+        transition={{ delay: 1, type: "spring", stiffness: 200 }}
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 p-3.5 rounded-full bg-foreground text-background shadow-lg transition-all duration-300 hover:scale-105 ${
+        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full bg-primary text-primary-foreground shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-all duration-300 hover:scale-105 ${
           isOpen ? "hidden" : "flex"
         }`}
         aria-label="Open chat"
       >
-        <MessageCircle className="w-5 h-5" />
+        <MessageCircle className="w-6 h-6" />
       </motion.button>
 
       {/* Chat window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 15, scale: 0.97 }}
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 15, scale: 0.97 }}
-            transition={{ duration: 0.2 }}
-            className="fixed bottom-6 right-6 z-50 w-[360px] max-w-[calc(100vw-48px)] h-[480px] max-h-[calc(100vh-100px)] bg-background rounded-2xl overflow-hidden flex flex-col shadow-xl border border-border"
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.25 }}
+            className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-48px)] h-[500px] max-h-[calc(100vh-100px)] bg-card rounded-2xl overflow-hidden flex flex-col shadow-[0_0_50px_rgba(59,130,246,0.2)] border border-border"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-border">
+            <div className="flex items-center justify-between p-5 border-b border-border bg-secondary/50">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="p-2 rounded-lg bg-muted">
-                    <Bot className="w-4 h-4 text-foreground/70" />
+                  <div className="p-2.5 rounded-xl bg-primary/20">
+                    <Bot className="w-5 h-5 text-primary" />
                   </div>
-                  <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-green-500 rounded-full border-2 border-background" />
+                  <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-card" />
                 </div>
                 <div>
-                  <h3 className="font-[var(--font-poppins)] font-medium text-foreground text-sm">
+                  <h3 className="font-[var(--font-space)] font-semibold text-foreground text-base">
                     Aynix Assistant
                   </h3>
                   <p className="text-xs text-muted-foreground">Here to help</p>
@@ -176,40 +176,40 @@ export function AIChatbot() {
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-1.5 rounded-md hover:bg-muted transition-colors"
+                className="p-2 rounded-lg hover:bg-muted transition-colors"
                 aria-label="Close chat"
               >
-                <X className="w-4 h-4 text-muted-foreground" />
+                <X className="w-5 h-5 text-muted-foreground" />
               </button>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-5 space-y-4">
               {messages.map((message) => (
                 <motion.div
                   key={message.id}
-                  initial={{ opacity: 0, y: 8 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className={`flex gap-2.5 ${message.role === "user" ? "flex-row-reverse" : ""}`}
+                  className={`flex gap-3 ${message.role === "user" ? "flex-row-reverse" : ""}`}
                 >
                   <div
-                    className={`flex-shrink-0 w-7 h-7 rounded-md flex items-center justify-center ${
+                    className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ${
                       message.role === "user"
-                        ? "bg-foreground"
-                        : "bg-muted"
+                        ? "bg-primary"
+                        : "bg-secondary"
                     }`}
                   >
                     {message.role === "user" ? (
-                      <User className="w-3.5 h-3.5 text-background" />
+                      <User className="w-4 h-4 text-primary-foreground" />
                     ) : (
-                      <Bot className="w-3.5 h-3.5 text-foreground/70" />
+                      <Bot className="w-4 h-4 text-primary" />
                     )}
                   </div>
                   <div
-                    className={`max-w-[75%] px-3.5 py-2.5 rounded-xl ${
+                    className={`max-w-[75%] px-4 py-3 rounded-2xl ${
                       message.role === "user"
-                        ? "bg-foreground text-background rounded-tr-sm"
-                        : "bg-muted text-foreground rounded-tl-sm"
+                        ? "bg-primary text-primary-foreground rounded-tr-sm"
+                        : "bg-secondary text-foreground rounded-tl-sm"
                     }`}
                   >
                     <p className="text-sm leading-relaxed">{message.content}</p>
@@ -220,29 +220,29 @@ export function AIChatbot() {
               {/* Typing indicator */}
               {isTyping && (
                 <motion.div
-                  initial={{ opacity: 0, y: 8 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="flex gap-2.5"
+                  className="flex gap-3"
                 >
-                  <div className="w-7 h-7 rounded-md bg-muted flex items-center justify-center">
-                    <Bot className="w-3.5 h-3.5 text-foreground/70" />
+                  <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center">
+                    <Bot className="w-4 h-4 text-primary" />
                   </div>
-                  <div className="px-3.5 py-2.5 rounded-xl rounded-tl-sm bg-muted">
-                    <div className="flex gap-1">
+                  <div className="px-4 py-3 rounded-2xl rounded-tl-sm bg-secondary">
+                    <div className="flex gap-1.5">
                       <motion.span
                         animate={{ opacity: [0.3, 1, 0.3] }}
                         transition={{ duration: 1, repeat: Infinity, delay: 0 }}
-                        className="w-1.5 h-1.5 rounded-full bg-muted-foreground"
+                        className="w-2 h-2 rounded-full bg-primary"
                       />
                       <motion.span
                         animate={{ opacity: [0.3, 1, 0.3] }}
                         transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
-                        className="w-1.5 h-1.5 rounded-full bg-muted-foreground"
+                        className="w-2 h-2 rounded-full bg-primary"
                       />
                       <motion.span
                         animate={{ opacity: [0.3, 1, 0.3] }}
                         transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
-                        className="w-1.5 h-1.5 rounded-full bg-muted-foreground"
+                        className="w-2 h-2 rounded-full bg-primary"
                       />
                     </div>
                   </div>
@@ -252,8 +252,8 @@ export function AIChatbot() {
             </div>
 
             {/* Input */}
-            <div className="p-4 border-t border-border">
-              <div className="flex gap-2">
+            <div className="p-5 border-t border-border bg-secondary/30">
+              <div className="flex gap-3">
                 <input
                   ref={inputRef}
                   type="text"
@@ -261,17 +261,17 @@ export function AIChatbot() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Ask about Aynix..."
-                  className="flex-1 px-4 py-2.5 rounded-lg bg-muted border-0 focus:ring-1 focus:ring-foreground/20 transition-all text-foreground placeholder:text-muted-foreground text-sm"
+                  className="flex-1 px-4 py-3 rounded-xl bg-muted border border-border focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-foreground placeholder:text-muted-foreground text-sm"
                 />
                 <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={handleSend}
                   disabled={!input.trim()}
-                  className="p-2.5 rounded-lg bg-foreground text-background disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                  className="p-3 rounded-xl bg-primary text-primary-foreground disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
                   aria-label="Send message"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-5 h-5" />
                 </motion.button>
               </div>
             </div>

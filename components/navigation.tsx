@@ -28,11 +28,11 @@ export function Navigation() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-background/95 backdrop-blur-md border-b border-border py-4" 
-          : "bg-transparent py-5"
+          ? "bg-background/80 backdrop-blur-xl border-b border-border py-4" 
+          : "bg-transparent py-6"
       }`}
     >
       <div className="container mx-auto px-6">
@@ -44,7 +44,7 @@ export function Navigation() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className="font-[var(--font-poppins)] text-xl md:text-2xl font-bold tracking-tight text-foreground">
+            <span className="font-[var(--font-space)] text-2xl md:text-3xl font-bold tracking-tight text-foreground">
               AYNIX
             </span>
           </motion.a>
@@ -66,7 +66,7 @@ export function Navigation() {
           {/* CTA Button */}
           <motion.a
             href="#contact"
-            className="hidden md:flex px-6 py-2.5 bg-foreground text-background rounded-full text-base font-semibold transition-all duration-300 hover:bg-foreground/90 hover:shadow-lg"
+            className="hidden md:flex px-6 py-2.5 bg-primary text-primary-foreground rounded-full text-base font-semibold transition-all duration-300 hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -79,7 +79,7 @@ export function Navigation() {
             className="md:hidden p-2 text-foreground"
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </nav>
       </div>
@@ -92,7 +92,7 @@ export function Navigation() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-background border-t border-border mt-4"
+            className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border mt-4"
           >
             <div className="container mx-auto px-6 py-6 space-y-4">
               {navItems.map((item, index) => (
@@ -103,7 +103,7 @@ export function Navigation() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.08 }}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-base text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {item.label}
                 </motion.a>
@@ -114,9 +114,9 @@ export function Navigation() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navItems.length * 0.08 }}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="inline-block px-5 py-2.5 bg-foreground text-background rounded-full text-sm mt-4"
+                className="inline-block px-6 py-3 bg-primary text-primary-foreground rounded-full text-base font-semibold mt-4"
               >
-                Get in Touch
+                Contact
               </motion.a>
             </div>
           </motion.div>
